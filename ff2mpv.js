@@ -13,7 +13,14 @@ function ff2mpv(url) {
 browser.contextMenus.create({
     id: "ff2mpv",
     title: "Play in MPV",
-    contexts: ["link", "image", "video", "audio", "selection", "frame"]
+    contexts: ["link", "image", "video", "audio", "selection", "frame"],
+    icons: {
+        "16": "icons/icon_16x16.png",
+        "32": "icons/icon_32x32.png",
+        "48": "icons/icon_48x48.png",
+        "64": "icons/icon_64x64.png",
+        "256": "icons/icon_256x256.png"
+    }
 });
 
 browser.contextMenus.create({
