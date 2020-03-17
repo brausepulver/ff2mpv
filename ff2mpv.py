@@ -3,14 +3,15 @@
 import sys
 import struct
 import json
-from subprocess import Popen, DEVNULL
+from subprocess import run
 
 
 def main():
     message = get_message()
     url = message.get("url")
-    args = ["mpv", "--no-terminal", "--", url]
-    Popen(args, stdin=DEVNULL, stdout=DEVNULL, stderr=DEVNULL)
+    ytdlformat = message.get("ytdlformat")
+    args = ["Path:\\to\\mpv", '--ytdl-format='+ytdlformat, "--no-terminal", "--", url]
+    run(args)
     # Need to respond something to avoid "Error: An unexpected error occurred"
     # in Browser Console.
     send_message("ok")
